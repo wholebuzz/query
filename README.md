@@ -1,9 +1,12 @@
 # @wholebuzz/query
 
+Regex extended [filtrex](https://github.com/m93a/filtrex#readme) object query language.
+
 ## Example
 
 ```
 import { parseFilterQuery } from '@wholebuzz/query/lib/query'
+
 interface Record {
   title: string
   count: number
@@ -13,8 +16,26 @@ const records: Record[] = [
   { title: 'Rock guitar volume 3', count: 46 },
   { title: 'Blues harmonica volume 1', count: 10 },
 ]
-const query = parseFilterQuery('blues count>10', ['title', 'count'], ['title'])
+const parseRecordQuery = (q: string) =>
+  parseFilterQuery<Record>(q, new Set(['title', 'count']), ['title'])
 
+// [
+//   { title: 'Blues guitar volume 1', count: 35 },
+//   { title: 'Blues harmonica volume 1', count: 10 }
+// ]
+console.log(records.filter(parseRecordQuery('blues')))
+
+//[ { title: 'Blues guitar volume 1', count: 35 } ]
+console.log(records.filter(parseRecordQuery('blues count>10')))
+
+// [
+//   { title: 'Blues guitar volume 1', count: 35 },
+//   { title: 'Rock guitar volume 3', count: 46 }
+// ]
+console.log(records.filter(parseRecordQuery('count>=35')))
+
+// [ { title: 'Rock guitar volume 3', count: 46 } ]
+console.log(records.filter(parseRecordQuery('rock')))
 ```
 
 ## Table of contents

@@ -86,4 +86,3 @@ it('Should filter objects correctly', async () => {
   }
   assert.equal(fail, true)
 })
-

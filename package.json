@@ -1,12 +1,12 @@
 {
-  "name": "@wholebuzz/archive-client",
+  "name": "@wholebuzz/query",
   "version": "0.0.2",
   "description": "Parses text query to object filter",
   "author": "wholebuzz",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wholebuzz/archive-client.git"
+    "url": "https://github.com/wholebuzz/query.git"
   },
   "types": "./lib/index.d.ts",
   "scripts": {
