@@ -1,10 +1,10 @@
-# @wholebuzz/query
+# @wholebuzz/query ![image](https://img.shields.io/npm/v/@wholebuzz/query) [![test](https://github.com/wholebuzz/query/actions/workflows/test.yaml/badge.svg)](https://github.com/wholebuzz/query/actions/workflows/test.yaml)
 
 Regex extended [filtrex](https://github.com/m93a/filtrex#readme) object query language.
 
 ## Example
 
-```
+```typescript
 import { parseFilterQuery } from '@wholebuzz/query/lib/query'
 
 interface Record {
